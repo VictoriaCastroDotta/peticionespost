@@ -1,0 +1,33 @@
+﻿@model Perro
+
+<div class="container mt-4 text-center" style="margin:0 auto">
+    <h1 class="display-2 text-center"> Peticiones Post con formularios </h1>
+    <form method="post" class="form-group">
+        <label class="col-form-label"> Nombre: </label>
+        <input type="text" name="nombre" class="form-control" /><br />
+        <label class="col-form-label"> Edad: </label>
+        <input type="number" name="edad" class="form-control" /><br />
+        <label class="col-form-label"> Raza: </label>
+        <input type="text" name="raza" class="form-control" /><br />
+        <label class="col-form-label"> Descripción: </label>
+        <textarea class="form-control" name="descripcion"></textarea>
+        <button type="submit" class="btn btn-danger"> Ver datos </button>
+    </form>
+    <br />
+    @if (Model != null)
+    {
+        <h1 class="display-4"> Datos mostrados con uso de modelo: </h1>
+        <h3 class="lead"> <span class="font-weight-bold"> Nombre: </span> @Model.Nombre</h3>
+        <h3 class="lead"> <span class="font-weight-bold"> Edad: </span> @Model.Edad</h3>
+        <h3 class="lead"> <span class="font-weight-bold"> Raza: </span> @Model.Raza</h3>
+        <h3 class="lead"> <span class="font-weight-bold"> Descripción: </span> @Model.Descripcion</h3>
+    }
+    @if (ViewData["nombre"] != null && ViewData["edad"] != null && ViewData["raza"] != null && ViewData["descripcion"] != null)
+        {
+    <h1 class="display-4"> Datos mostrados con uso de ViewData: </h1>
+    <h3 class="lead"> <span class="font-weight-bold"> Nombre: </span> @ViewData["nombre"]</h3>
+    <h3 class="lead"> <span class="font-weight-bold"> Edad: </span>  @ViewData["edad"]</h3>
+    <h3 class="lead"> <span class="font-weight-bold"> Raza: </span> @ViewData["raza"]</h3>
+    <h3 class="lead"> <span class="font-weight-bold"> Descripción: </span> @ViewData["descripcion"]</h3>
+        }
+</div>
